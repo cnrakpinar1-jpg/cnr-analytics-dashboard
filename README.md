@@ -121,7 +121,7 @@ All views are sibling `<div class="view">` elements inside `#view-container`. Th
 ## Installation
 
 ```bash
-git clone https://github.com/your-handle/cnr-analytics-dashboard.git
+git clone https://github.com/cnrakpinar1-jpg/cnr-analytics-dashboard.git
 cd cnr-analytics-dashboard
 open index.html
 ```
