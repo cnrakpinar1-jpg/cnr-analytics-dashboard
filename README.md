@@ -1,4 +1,4 @@
-# CNR Ops Dashboard
+# CNR Analytics Dashboard
 
 A premium front-end operations dashboard built for service businesses — managing leads, clients, proposals, meetings, and reporting from a single, polished internal interface.
 
@@ -119,7 +119,7 @@ All views are sibling `<div class="view">` elements inside `#view-container`. Th
 ## Installation
 
 ```bash
-git clone https://github.com/your-handle/cnr-analytics-dashboard.git
+git clone https://github.com/cnrakpinar1-jpg/cnr-analytics-dashboard.git
 cd cnr-analytics-dashboard
 open index.html
 ```
