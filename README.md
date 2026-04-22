@@ -85,8 +85,6 @@ Profile editing form (name, email, role, timezone), six notification preference 
 
 ## Tech Stack
 
-## Tech Stack
-
 | Layer | Detail |
 |---|---|
 | Markup | HTML5 |
