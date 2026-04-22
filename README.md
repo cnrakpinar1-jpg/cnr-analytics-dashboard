@@ -85,16 +85,18 @@ Profile editing form (name, email, role, timezone), six notification preference 
 
 ## Tech Stack
 
+## Tech Stack
+
 | Layer | Detail |
 |---|---|
 | Markup | HTML5 |
-| Styling | CSS — custom properties, Grid, Flexbox |
-| Logic | Vanilla JavaScript (ES2020) |
-| Typography | Inter via Google Fonts |
-| Charts | Hand-coded CSS bar chart + SVG sparklines |
-| Icons | Inline SVG |
-| Dependencies | None |
-| Build | None — open `index.html` and it runs |
+| Styling | CSS3 |
+| Interaction | Vanilla JavaScript |
+| Data | Demo data embedded in the front end |
+| Architecture | Multi-view front-end dashboard |
+| Branding | Subtle CNR Solutions product signature |
+
+No React, Vue, Tailwind, or any runtime dependency beyond a single Google Font. The project works offline.
 
 No React, Vue, Tailwind, or any runtime dependency beyond a single Google Font. The project works offline.
 
