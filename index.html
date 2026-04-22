@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CNR Ops — Operations Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ─── Sidebar ─────────────────────────────────────────── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand-mark">
+        <div class="brand-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">CNR Ops</span>
+          <span class="brand-sub">Operations Platform</span>
+        </div>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Collapse sidebar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+    </div>
+
+    <div class="workspace-badge">
+      <div class="ws-dot"></div>
+      <span class="ws-name">CNR Solutions</span>
+      <span class="ws-env">Production</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Workspace</div>
+      <ul>
+        <li class="active">
+          <a href="#" data-section="dashboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            <span>Overview</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-section="leads">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Leads</span>
+            <span class="nav-badge">12</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-section="clients">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Clients</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-section="quotes">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>Quotes</span>
+            <span class="nav-badge warning">5</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-section="bookings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>Bookings</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-section-label">Reporting</div>
+      <ul>
+        <li>
+          <a href="#" data-section="pipeline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span>Pipeline</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-section="reports">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            <span>Reports</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" data-section="settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+            <span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <div class="avatar">AM</div>
+        <div class="user-info">
+          <span class="user-name">Alex Morgan</span>
+          <span class="user-role">Account Admin</span>
+        </div>
+        <div class="user-status" title="Online"></div>
+      </div>
+      <div class="sidebar-credit">CNR Solutions · v2.0</div>
+    </div>
+  </aside>
+
+  <!-- ─── Main ────────────────────────────────────────────── -->
+  <main class="main" id="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="topbar-context">
+          <div class="page-title-wrap">
+            <h1 class="page-title" id="pageTitle">Overview</h1>
+            <span class="page-date" id="currentDate"></span>
+          </div>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="period-select">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>April 2026</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="topbar-divider"></div>
+        <div class="search-bar">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search records…" id="searchInput" />
+          <kbd>⌘K</kbd>
+        </div>
+        <button class="icon-btn" title="3 unread notifications">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="notif-dot"></span>
+        </button>
+        <button class="icon-btn" title="Refresh data" id="refreshBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.16"/></svg>
+        </button>
+        <div class="topbar-avatar" title="Alex Morgan — Admin">AM</div>
+      </div>
+    </header>
+
+    <!-- ─── View Container ─────────────────────────────────── -->
+    <div id="view-container">
+
+      <!-- ══════════════════════════════════════════════════
+           VIEW: DASHBOARD (Overview)
+      ══════════════════════════════════════════════════ -->
+      <div class="view active" id="view-dashboard">
+        <div class="content">
+
+          <!-- Stats -->
+          <section class="stats-grid">
+            <div class="stat-card" data-accent="#6366f1">
+              <div class="stat-header">
+                <div class="stat-icon leads">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <span class="stat-label">Inbound Leads</span>
+              </div>
+              <div class="stat-value" data-target="148">148</div>
+              <div class="stat-footer">
+                <span class="trend up"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>+14% vs last month</span>
+                <span class="sparkline-wrap" id="spark-leads"></span>
+              </div>
+            </div>
+
+            <div class="stat-card" data-accent="#60a5fa">
+              <div class="stat-header">
+                <div class="stat-icon clients">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <span class="stat-label">Active Clients</span>
+              </div>
+              <div class="stat-value" data-target="63">63</div>
+              <div class="stat-footer">
+                <span class="trend up"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>6 onboarded this week</span>
+                <span class="sparkline-wrap" id="spark-clients"></span>
+              </div>
+            </div>
+
+            <div class="stat-card" data-accent="#f59e0b">
+              <div class="stat-header">
+                <div class="stat-icon quotes">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <span class="stat-label">Pending Quotes</span>
+              </div>
+              <div class="stat-value" data-target="17">17</div>
+              <div class="stat-footer">
+                <span class="trend warn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>3 expire within 48h</span>
+                <span class="sparkline-wrap" id="spark-quotes"></span>
+              </div>
+            </div>
+
+            <div class="stat-card" data-accent="#34d399">
+              <div class="stat-header">
+                <div class="stat-icon bookings">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <span class="stat-label">Booked Meetings</span>
+              </div>
+              <div class="stat-value" data-target="29">29</div>
+              <div class="stat-footer">
+                <span class="trend up"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>8 scheduled this week</span>
+                <span class="sparkline-wrap" id="spark-bookings"></span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Mid row -->
+          <div class="mid-grid">
+            <section class="card pipeline-card">
+              <div class="card-header">
+                <div><h2 class="card-title">Conversion Pipeline</h2><p class="card-subtitle">Active leads by stage — Q2 2026</p></div>
+                <div class="card-actions"><span class="pill">125 total leads</span></div>
+              </div>
+              <div class="pipeline-stages">
+                <div class="stage">
+                  <div class="stage-top"><div class="stage-left"><span class="stage-dot" style="background:#6366f1;"></span><span class="stage-label">New Inquiry</span></div><div class="stage-right"><span class="stage-count">42 leads</span><span class="stage-value">$38,200</span></div></div>
+                  <div class="stage-bar-wrap"><div class="stage-bar" style="--pct:85%;--clr:#6366f1;"></div></div>
+                </div>
+                <div class="stage">
+                  <div class="stage-top"><div class="stage-left"><span class="stage-dot" style="background:#8b5cf6;"></span><span class="stage-label">Qualified</span></div><div class="stage-right"><span class="stage-count">31 leads</span><span class="stage-value">$62,500</span></div></div>
+                  <div class="stage-bar-wrap"><div class="stage-bar" style="--pct:63%;--clr:#8b5cf6;"></div></div>
+                </div>
+                <div class="stage">
+                  <div class="stage-top"><div class="stage-left"><span class="stage-dot" style="background:#a78bfa;"></span><span class="stage-label">Proposal Sent</span></div><div class="stage-right"><span class="stage-count">17 leads</span><span class="stage-value">$91,800</span></div></div>
+                  <div class="stage-bar-wrap"><div class="stage-bar" style="--pct:45%;--clr:#a78bfa;"></div></div>
+                </div>
+                <div class="stage">
+                  <div class="stage-top"><div class="stage-left"><span class="stage-dot" style="background:#c4b5fd;"></span><span class="stage-label">In Negotiation</span></div><div class="stage-right"><span class="stage-count">11 leads</span><span class="stage-value">$44,300</span></div></div>
+                  <div class="stage-bar-wrap"><div class="stage-bar" style="--pct:28%;--clr:#c4b5fd;"></div></div>
+                </div>
+                <div class="stage">
+                  <div class="stage-top"><div class="stage-left"><span class="stage-dot" style="background:#34d399;"></span><span class="stage-label">Closed · Won</span></div><div class="stage-right"><span class="stage-count">24 clients</span><span class="stage-value" style="color:var(--green);">$187,400</span></div></div>
+                  <div class="stage-bar-wrap"><div class="stage-bar" style="--pct:52%;--clr:#34d399;"></div></div>
+                </div>
+              </div>
+              <div class="pipeline-footer">
+                <div class="pipeline-stat"><span class="ps-label">Total pipeline value</span><span class="ps-val">$424,200</span></div>
+                <div class="pipeline-stat"><span class="ps-label">Avg deal size</span><span class="ps-val">$7,812</span></div>
+                <div class="pipeline-stat"><span class="ps-label">Win rate</span><span class="ps-val success">38.7%</span></div>
+              </div>
+            </section>
+
+            <section class="card activity-card">
+              <div class="card-header">
+                <div><h2 class="card-title">Activity Log</h2><p class="card-subtitle">Real-time operations feed</p></div>
+                <button class="text-btn">View all <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+              </div>
+              <div class="activity-list" id="activityList"></div>
+            </section>
+          </div>
+
+          <!-- Analytics -->
+          <section class="card analytics-card">
+            <div class="card-header">
+              <div><h2 class="card-title">Performance Trends</h2><p class="card-subtitle">Week of Apr 14 – Apr 22, 2026</p></div>
+              <div class="card-actions">
+                <div class="tab-group">
+                  <button class="tab active" data-tab="leads">Leads</button>
+                  <button class="tab" data-tab="conversions">Conversions</button>
+                  <button class="tab" data-tab="revenue">Revenue</button>
+                </div>
+              </div>
+            </div>
+            <div class="chart-container">
+              <div class="chart-yaxis" id="chartYAxis"></div>
+              <div class="chart-area" id="chartArea"></div>
+            </div>
+            <div class="chart-legend" id="chartLegend"></div>
+          </section>
+
+          <!-- Bottom row -->
+          <div class="bottom-grid">
+            <section class="card table-card">
+              <div class="card-header">
+                <div><h2 class="card-title">Deals & Proposals</h2><p class="card-subtitle">Most recent records across all stages</p></div>
+                <div class="card-actions">
+                  <button class="outline-btn" onclick="showToast('Generating CSV export…')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export</button>
+                  <button class="outline-btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="12" y1="18" x2="20" y2="18"/></svg>Filter</button>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead><tr><th>Client</th><th>Ref</th><th>Scope of Work</th><th>Stage</th><th>Value</th><th>Updated</th><th>Status</th></tr></thead>
+                  <tbody id="dealsBody"></tbody>
+                </table>
+              </div>
+            </section>
+
+            <aside class="right-panel">
+              <section class="card cmd-card">
+                <div class="card-header"><h2 class="card-title">Quick Actions</h2><span class="pill">4 shortcuts</span></div>
+                <div class="cmd-list">
+                  <button class="cmd-item" onclick="showToast('Lead intake form opened')">
+                    <div class="cmd-icon leads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg></div>
+                    <div class="cmd-body"><span class="cmd-title">Log New Lead</span><span class="cmd-desc">Capture an incoming inquiry</span></div>
+                    <div class="cmd-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg></div>
+                  </button>
+                  <button class="cmd-item" onclick="showToast('Quote builder ready')">
+                    <div class="cmd-icon quotes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
+                    <div class="cmd-body"><span class="cmd-title">Send a Proposal</span><span class="cmd-desc">Draft and dispatch a quote</span></div>
+                    <div class="cmd-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg></div>
+                  </button>
+                  <button class="cmd-item" onclick="showToast('Calendar availability opened')">
+                    <div class="cmd-icon bookings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/></svg></div>
+                    <div class="cmd-body"><span class="cmd-title">Book a Meeting</span><span class="cmd-desc">Schedule a call or review</span></div>
+                    <div class="cmd-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg></div>
+                  </button>
+                  <button class="cmd-item" onclick="showToast('Generating monthly report…')">
+                    <div class="cmd-icon reports"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+                    <div class="cmd-body"><span class="cmd-title">Export Report</span><span class="cmd-desc">Download pipeline snapshot</span></div>
+                    <div class="cmd-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg></div>
+                  </button>
+                </div>
+              </section>
+
+              <section class="card snapshot-card">
+                <div class="card-header"><h2 class="card-title">Month Snapshot</h2><span class="pill">Apr 2026</span></div>
+                <div class="snapshot-list">
+                  <div class="snapshot-row"><span class="snap-label">Closed Revenue</span><span class="snap-val highlight">$124,800</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Proposals Sent</span><span class="snap-val">23</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Discovery Calls</span><span class="snap-val">41</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Close Rate</span><span class="snap-val success">38.7%</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Avg Response Time</span><span class="snap-val">2.4 hrs</span></div>
+                  <div class="snapshot-row"><span class="snap-label">NPS Score</span><span class="snap-val success">74</span></div>
+                </div>
+              </section>
+            </aside>
+          </div>
+
+        </div><!-- /.content -->
+      </div><!-- /#view-dashboard -->
+
+      <!-- ══════════════════════════════════════════════════
+           VIEW: LEADS
+      ══════════════════════════════════════════════════ -->
+      <div class="view" id="view-leads">
+        <div class="section-content">
+
+          <div class="view-header">
+            <div>
+              <h2 class="view-title">Inbound Leads</h2>
+              <p class="view-sub">148 total leads · 12 new this week · Q2 2026</p>
+            </div>
+            <button class="primary-btn" onclick="showToast('Lead intake form opened')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Lead
+            </button>
+          </div>
+
+          <div class="vstat-row">
+            <div class="vstat"><span class="vstat-num">148</span><span class="vstat-label">Total leads</span></div>
+            <div class="vstat accent"><span class="vstat-num">12</span><span class="vstat-label">New this week</span></div>
+            <div class="vstat"><span class="vstat-num">42</span><span class="vstat-label">Pending qualification</span></div>
+            <div class="vstat warn"><span class="vstat-num">7</span><span class="vstat-label">No response 3+ days</span></div>
+            <div class="vstat success"><span class="vstat-num">74</span><span class="vstat-label">Avg lead score</span></div>
+          </div>
+
+          <div class="filter-bar">
+            <div class="filter-search">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" placeholder="Search leads…" />
+            </div>
+            <select class="filter-select"><option>All Stages</option><option>New Inquiry</option><option>Qualified</option><option>Proposal Sent</option><option>In Negotiation</option></select>
+            <select class="filter-select"><option>All Sources</option><option>Website Form</option><option>Referral</option><option>LinkedIn</option><option>Google Ads</option><option>Email Campaign</option></select>
+            <select class="filter-select"><option>All Owners</option><option>Alex Morgan</option><option>Jamie Lee</option><option>Chris Dunn</option></select>
+          </div>
+
+          <section class="card">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Lead</th><th>Company</th><th>Source</th><th>Stage</th><th>Owner</th><th>Score</th><th>Added</th><th></th></tr></thead>
+                <tbody>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#6366f122;color:#6366f1;">MD</div><span class="client-name">Marcus Delray</span></div></td><td><span class="service-tag">Independent</span></td><td><span class="source-badge website">Website</span></td><td><span class="stage-badge inquiry">New Inquiry</span></td><td><div class="owner-cell"><div class="owner-av" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">AM</div><span>Alex M.</span></div></td><td><span class="lead-score high">84</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 22</td><td><button class="row-action" onclick="showToast('Opening Marcus Delray profile…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#60a5fa22;color:#60a5fa;">AC</div><span class="client-name">Aria Chen</span></div></td><td><span class="service-tag">Chen & Partners</span></td><td><span class="source-badge referral">Referral</span></td><td><span class="stage-badge qualified">Qualified</span></td><td><div class="owner-cell"><div class="owner-av" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">AM</div><span>Alex M.</span></div></td><td><span class="lead-score high">91</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 19</td><td><button class="row-action" onclick="showToast('Opening Aria Chen profile…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#34d39922;color:#34d399;">RO</div><span class="client-name">Ryan Okafor</span></div></td><td><span class="service-tag">Okafor Media</span></td><td><span class="source-badge linkedin">LinkedIn</span></td><td><span class="stage-badge qualified">Qualified</span></td><td><div class="owner-cell"><div class="owner-av" style="background:linear-gradient(135deg,#34d399,#059669);">JL</div><span>Jamie L.</span></div></td><td><span class="lead-score high">78</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 17</td><td><button class="row-action" onclick="showToast('Opening Ryan Okafor profile…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#a78bfa22;color:#a78bfa;">SB</div><span class="client-name">Solène Beaumont</span></div></td><td><span class="service-tag">Beaumont Creative</span></td><td><span class="source-badge referral">Referral</span></td><td><span class="stage-badge sent">Proposal Sent</span></td><td><div class="owner-cell"><div class="owner-av" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">AM</div><span>Alex M.</span></div></td><td><span class="lead-score high">88</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 15</td><td><button class="row-action" onclick="showToast('Opening Solène Beaumont profile…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#f87171 22;color:#f87171;">DC</div><span class="client-name">Devon Cross</span></div></td><td><span class="service-tag">Devon Cross Ventures</span></td><td><span class="source-badge website">Website</span></td><td><span class="stage-badge inquiry">New Inquiry</span></td><td><div class="owner-cell"><div class="owner-av" style="background:linear-gradient(135deg,#60a5fa,#3b82f6);">CD</div><span>Chris D.</span></div></td><td><span class="lead-score mid">71</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 17</td><td><button class="row-action" onclick="showToast('Opening Devon Cross profile…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#f59e0b22;color:#f59e0b;">TW</div><span class="client-name">Tanya Wells</span></div></td><td><span class="service-tag">Wells & Associates</span></td><td><span class="source-badge email">Email</span></td><td><span class="stage-badge followup">In Negotiation</span></td><td><div class="owner-cell"><div class="owner-av" style="background:linear-gradient(135deg,#34d399,#059669);">JL</div><span>Jamie L.</span></div></td><td><span class="lead-score mid">62</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 14</td><td><button class="row-action" onclick="showToast('Opening Tanya Wells profile…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#6366f122;color:#6366f1;">NB</div><span class="client-name">Noah Blackwell</span></div></td><td><span class="service-tag">Blackwell Labs</span></td><td><span class="source-badge ads">Google Ads</span></td><td><span class="stage-badge inquiry">New Inquiry</span></td><td><div class="owner-cell"><div class="owner-av" style="background:linear-gradient(135deg,#60a5fa,#3b82f6);">CD</div><span>Chris D.</span></div></td><td><span class="lead-score mid">65</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 12</td><td><button class="row-action" onclick="showToast('Opening Noah Blackwell profile…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#34d39922;color:#34d399;">FA</div><span class="client-name">Fatima Al-Hassan</span></div></td><td><span class="service-tag">Al-Hassan Consulting</span></td><td><span class="source-badge referral">Referral</span></td><td><span class="stage-badge won">Closed · Won</span></td><td><div class="owner-cell"><div class="owner-av" style="background:linear-gradient(135deg,#6366f1,#8b5cf6);">AM</div><span>Alex M.</span></div></td><td><span class="lead-score high">95</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 10</td><td><button class="row-action" onclick="showToast('Opening Fatima Al-Hassan profile…')">View</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div>
+      </div><!-- /#view-leads -->
+
+      <!-- ══════════════════════════════════════════════════
+           VIEW: CLIENTS
+      ══════════════════════════════════════════════════ -->
+      <div class="view" id="view-clients">
+        <div class="section-content">
+
+          <div class="view-header">
+            <div>
+              <h2 class="view-title">Client Accounts</h2>
+              <p class="view-sub">63 active accounts · $3,400 avg MRR</p>
+            </div>
+            <button class="primary-btn" onclick="showToast('New client form opened')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Client
+            </button>
+          </div>
+
+          <div class="vstat-row">
+            <div class="vstat success"><span class="vstat-num">63</span><span class="vstat-label">Active clients</span></div>
+            <div class="vstat accent"><span class="vstat-num">8</span><span class="vstat-label">New this month</span></div>
+            <div class="vstat"><span class="vstat-num">$214k</span><span class="vstat-label">Total MRR</span></div>
+            <div class="vstat warn"><span class="vstat-num">4</span><span class="vstat-label">At-risk accounts</span></div>
+          </div>
+
+          <div class="filter-bar">
+            <div class="filter-search">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" placeholder="Search clients…" />
+            </div>
+            <select class="filter-select"><option>All Statuses</option><option>Active</option><option>Onboarding</option><option>At-Risk</option><option>Churned</option></select>
+            <select class="filter-select"><option>All MRR Ranges</option><option>Under $2k</option><option>$2k – $5k</option><option>Over $5k</option></select>
+          </div>
+
+          <section class="card">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Company</th><th>Primary Contact</th><th>Client Since</th><th>MRR</th><th>Status</th><th>Account Health</th><th></th></tr></thead>
+                <tbody>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#6366f122;color:#6366f1;">AC</div><span class="client-name">Arcstone Capital</span></div></td><td><span class="service-tag">Priya Mehta</span></td><td style="color:var(--text-muted);font-size:11.5px;">Aug 2023</td><td><span class="value-cell">$8,400<span style="color:var(--text-muted);font-weight:400;">/mo</span></span></td><td><span class="status-badge active">Active</span></td><td><div class="health-bar"><span class="hd filled"></span><span class="hd filled"></span><span class="hd filled"></span><span class="hd filled"></span><span class="hd filled"></span></div></td><td><button class="row-action" onclick="showToast('Opening Arcstone Capital account…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#f59e0b22;color:#f59e0b;">PG</div><span class="client-name">Pinnacle Group</span></div></td><td><span class="service-tag">David Chen</span></td><td style="color:var(--text-muted);font-size:11.5px;">Mar 2024</td><td><span class="value-cell">$5,800<span style="color:var(--text-muted);font-weight:400;">/mo</span></span></td><td><span class="status-badge active">Active</span></td><td><div class="health-bar"><span class="hd filled"></span><span class="hd filled"></span><span class="hd filled"></span><span class="hd filled"></span><span class="hd filled"></span></div></td><td><button class="row-action" onclick="showToast('Opening Pinnacle Group account…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#60a5fa22;color:#60a5fa;">CP</div><span class="client-name">Chen & Partners</span></div></td><td><span class="service-tag">Aria Chen</span></td><td style="color:var(--text-muted);font-size:11.5px;">Mar 2025</td><td><span class="value-cell">$4,100<span style="color:var(--text-muted);font-weight:400;">/mo</span></span></td><td><span class="status-badge active">Active</span></td><td><div class="health-bar"><span class="hd filled"></span><span class="hd filled"></span><span class="hd filled"></span><span class="hd filled"></span><span class="hd"></span></div></td><td><button class="row-action" onclick="showToast('Opening Chen & Partners account…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#34d39922;color:#34d399;">MC</div><span class="client-name">Meridian Consulting</span></div></td><td><span class="service-tag">Layla Osei</span></td><td style="color:var(--text-muted);font-size:11.5px;">Jan 2025</td><td><span class="value-cell">$3,200<span style="color:var(--text-muted);font-weight:400;">/mo</span></span></td><td><span class="status-badge active">Active</span></td><td><div class="health-bar"><span class="hd filled"></span><span class="hd filled"></span><span class="hd filled"></span><span class="hd filled"></span><span class="hd"></span></div></td><td><button class="row-action" onclick="showToast('Opening Meridian Consulting account…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#a78bfa22;color:#a78bfa;">BC</div><span class="client-name">Beaumont Creative</span></div></td><td><span class="service-tag">Solène Beaumont</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 2026</td><td><span class="value-cell">$2,600<span style="color:var(--text-muted);font-weight:400;">/mo</span></span></td><td><span class="status-badge review">New</span></td><td><div class="health-bar"><span class="hd filled"></span><span class="hd filled"></span><span class="hd"></span><span class="hd"></span><span class="hd"></span></div></td><td><button class="row-action" onclick="showToast('Opening Beaumont Creative account…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#6366f122;color:#6366f1;">HP</div><span class="client-name">Hartwell Properties</span></div></td><td><span class="service-tag">Marcus Hartwell</span></td><td style="color:var(--text-muted);font-size:11.5px;">Feb 2026</td><td><span class="value-cell">$2,100<span style="color:var(--text-muted);font-weight:400;">/mo</span></span></td><td><span class="status-badge pending">Onboarding</span></td><td><div class="health-bar"><span class="hd filled"></span><span class="hd filled"></span><span class="hd"></span><span class="hd"></span><span class="hd"></span></div></td><td><button class="row-action" onclick="showToast('Opening Hartwell Properties account…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#34d39922;color:#34d399;">LS</div><span class="client-name">Lakewood Studio</span></div></td><td><span class="service-tag">Rosa Mendes</span></td><td style="color:var(--text-muted);font-size:11.5px;">Nov 2024</td><td><span class="value-cell">$1,800<span style="color:var(--text-muted);font-weight:400;">/mo</span></span></td><td><span class="status-badge active">Active</span></td><td><div class="health-bar"><span class="hd filled"></span><span class="hd filled"></span><span class="hd filled"></span><span class="hd filled"></span><span class="hd"></span></div></td><td><button class="row-action" onclick="showToast('Opening Lakewood Studio account…')">View</button></td></tr>
+                  <tr><td><div class="client-cell"><div class="client-avatar" style="background:#f8717122;color:#f87171;">OM</div><span class="client-name">Okafor Media</span></div></td><td><span class="service-tag">Ryan Okafor</span></td><td style="color:var(--text-muted);font-size:11.5px;">Dec 2024</td><td><span class="value-cell">$1,400<span style="color:var(--text-muted);font-weight:400;">/mo</span></span></td><td><span class="status-badge closed">At-Risk</span></td><td><div class="health-bar"><span class="hd filled"></span><span class="hd filled"></span><span class="hd"></span><span class="hd"></span><span class="hd"></span></div></td><td><button class="row-action" onclick="showToast('Opening Okafor Media account…')">View</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div>
+      </div><!-- /#view-clients -->
+
+      <!-- ══════════════════════════════════════════════════
+           VIEW: QUOTES
+      ══════════════════════════════════════════════════ -->
+      <div class="view" id="view-quotes">
+        <div class="section-content">
+
+          <div class="view-header">
+            <div>
+              <h2 class="view-title">Quotes & Proposals</h2>
+              <p class="view-sub">17 open proposals · $214k in outstanding value</p>
+            </div>
+            <button class="primary-btn" onclick="showToast('Quote builder opened')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              New Quote
+            </button>
+          </div>
+
+          <div class="vstat-row">
+            <div class="vstat accent"><span class="vstat-num">17</span><span class="vstat-label">Open proposals</span></div>
+            <div class="vstat warn"><span class="vstat-num">5</span><span class="vstat-label">Expiring within 7 days</span></div>
+            <div class="vstat"><span class="vstat-num">$214k</span><span class="vstat-label">Outstanding value</span></div>
+            <div class="vstat success"><span class="vstat-num">38.7%</span><span class="vstat-label">Win rate</span></div>
+            <div class="vstat"><span class="vstat-num">$7,812</span><span class="vstat-label">Avg deal size</span></div>
+          </div>
+
+          <div class="filter-bar">
+            <div class="filter-search">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" placeholder="Search quotes…" />
+            </div>
+            <select class="filter-select"><option>All Statuses</option><option>Pending</option><option>Accepted</option><option>Expiring</option><option>Expired</option><option>Declined</option></select>
+            <select class="filter-select"><option>All Values</option><option>Under $5k</option><option>$5k – $15k</option><option>Over $15k</option></select>
+          </div>
+
+          <section class="card">
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead><tr><th>Ref</th><th>Client</th><th>Scope</th><th>Value</th><th>Sent</th><th>Expires</th><th>Status</th><th></th></tr></thead>
+                <tbody>
+                  <tr><td><span class="ref-cell">QT-2847</span></td><td><div class="client-cell"><div class="client-avatar" style="background:#6366f122;color:#6366f1;">HP</div><span class="client-name">Hartwell Properties</span></div></td><td><span class="service-tag">Brand Identity System</span></td><td><span class="value-cell">$14,200</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 22</td><td style="font-size:11.5px;color:var(--amber);">May 6</td><td><span class="status-badge pending">Pending</span></td><td><button class="row-action" onclick="showToast('Opening QT-2847…')">View</button></td></tr>
+                  <tr><td><span class="ref-cell">QT-2846</span></td><td><div class="client-cell"><div class="client-avatar" style="background:#60a5fa22;color:#60a5fa;">PN</div><span class="client-name">Priya Nair</span></div></td><td><span class="service-tag">Growth & Demand Strategy</span></td><td><span class="value-cell">$8,900</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 20</td><td style="font-size:11.5px;color:var(--text-muted);">May 4</td><td><span class="status-badge review">In Review</span></td><td><button class="row-action" onclick="showToast('Opening QT-2846…')">View</button></td></tr>
+                  <tr><td><span class="ref-cell">QT-2845</span></td><td><div class="client-cell"><div class="client-avatar" style="background:#6366f122;color:#6366f1;">AC</div><span class="client-name">Arcstone Capital</span></div></td><td><span class="service-tag">Market Positioning Report</span></td><td><span class="value-cell">$7,600</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 15</td><td style="font-size:11.5px;color:var(--amber);">Apr 29</td><td><span class="status-badge pending">Pending</span></td><td><button class="row-action" onclick="showToast('Opening QT-2845…')">View</button></td></tr>
+                  <tr><td><span class="ref-cell">QT-2843</span></td><td><div class="client-cell"><div class="client-avatar" style="background:#f8717122;color:#f87171;">DC</div><span class="client-name">Devon Cross Ventures</span></div></td><td><span class="service-tag">CRM Configuration & Training</span></td><td><span class="value-cell">$12,100</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 14</td><td style="font-size:11.5px;color:var(--red);">Apr 28</td><td><span class="status-badge closed">Expiring</span></td><td><button class="row-action" onclick="showToast('Opening QT-2843…')">View</button></td></tr>
+                  <tr><td><span class="ref-cell">QT-2842</span></td><td><div class="client-cell"><div class="client-avatar" style="background:#34d39922;color:#34d399;">OM</div><span class="client-name">Okafor Media</span></div></td><td><span class="service-tag">Social & Paid Ads Strategy</span></td><td><span class="value-cell">$5,400</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 10</td><td style="font-size:11.5px;color:var(--red);">Apr 24</td><td><span class="status-badge closed">Expiring</span></td><td><button class="row-action" onclick="showToast('Opening QT-2842…')">View</button></td></tr>
+                  <tr><td><span class="ref-cell">QT-2841</span></td><td><div class="client-cell"><div class="client-avatar" style="background:#34d39922;color:#34d399;">MC</div><span class="client-name">Meridian Consulting</span></div></td><td><span class="service-tag">Web Platform & CMS</span></td><td><span class="value-cell">$38,500</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 8</td><td style="font-size:11.5px;color:var(--text-muted);">—</td><td><span class="status-badge active">Accepted</span></td><td><button class="row-action" onclick="showToast('Opening QT-2841…')">View</button></td></tr>
+                  <tr><td><span class="ref-cell">QT-2838</span></td><td><div class="client-cell"><div class="client-avatar" style="background:#6366f122;color:#6366f1;">BL</div><span class="client-name">Blackwell Labs</span></div></td><td><span class="service-tag">Tech Stack Audit & Roadmap</span></td><td><span class="value-cell">$6,200</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 5</td><td style="font-size:11.5px;color:var(--text-muted);">May 5</td><td><span class="status-badge review">In Review</span></td><td><button class="row-action" onclick="showToast('Opening QT-2838…')">View</button></td></tr>
+                  <tr><td><span class="ref-cell">QT-2835</span></td><td><div class="client-cell"><div class="client-avatar" style="background:#a78bfa22;color:#a78bfa;">BC</div><span class="client-name">Beaumont Creative</span></div></td><td><span class="service-tag">Editorial & Content Direction</span></td><td><span class="value-cell">$9,800</span></td><td style="color:var(--text-muted);font-size:11.5px;">Apr 3</td><td style="font-size:11.5px;color:var(--text-muted);">—</td><td><span class="status-badge active">Accepted</span></td><td><button class="row-action" onclick="showToast('Opening QT-2835…')">View</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+        </div>
+      </div><!-- /#view-quotes -->
+
+      <!-- ══════════════════════════════════════════════════
+           VIEW: BOOKINGS
+      ══════════════════════════════════════════════════ -->
+      <div class="view" id="view-bookings">
+        <div class="section-content">
+
+          <div class="view-header">
+            <div>
+              <h2 class="view-title">Bookings & Meetings</h2>
+              <p class="view-sub">29 meetings this month · 94% show rate</p>
+            </div>
+            <button class="primary-btn" onclick="showToast('Scheduling calendar opened')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Schedule
+            </button>
+          </div>
+
+          <div class="vstat-row">
+            <div class="vstat accent"><span class="vstat-num">3</span><span class="vstat-label">Today</span></div>
+            <div class="vstat"><span class="vstat-num">8</span><span class="vstat-label">This week</span></div>
+            <div class="vstat"><span class="vstat-num">29</span><span class="vstat-label">This month</span></div>
+            <div class="vstat success"><span class="vstat-num">94%</span><span class="vstat-label">Show rate</span></div>
+            <div class="vstat"><span class="vstat-num">47 min</span><span class="vstat-label">Avg duration</span></div>
+          </div>
+
+          <div class="bookings-layout">
+            <div class="bookings-main">
+              <div class="booking-group">
+                <div class="booking-group-label">Today · Apr 22</div>
+                <div class="booking-item"><div class="booking-time">10:00 AM</div><div class="booking-dot" style="background:#6366f1;"></div><div class="booking-info"><div class="booking-client">Priya Nair</div><div class="booking-type">Discovery Call · 45 min · Google Meet</div></div><span class="booking-badge confirmed">Confirmed</span><button class="row-action" onclick="showToast('Opening call details…')">Join</button></div>
+                <div class="booking-item"><div class="booking-time">1:30 PM</div><div class="booking-dot" style="background:#34d399;"></div><div class="booking-info"><div class="booking-client">Meridian Consulting</div><div class="booking-type">Monthly Review · 60 min · Zoom</div></div><span class="booking-badge confirmed">Confirmed</span><button class="row-action" onclick="showToast('Opening call details…')">Join</button></div>
+                <div class="booking-item"><div class="booking-time">3:15 PM</div><div class="booking-dot" style="background:#f59e0b;"></div><div class="booking-info"><div class="booking-client">Devon Cross</div><div class="booking-type">Follow-up Call · 30 min · Phone</div></div><span class="booking-badge pending">Pending</span><button class="row-action" onclick="showToast('Sending confirmation…')">Confirm</button></div>
+              </div>
+              <div class="booking-group">
+                <div class="booking-group-label">Tomorrow · Apr 23</div>
+                <div class="booking-item"><div class="booking-time">9:00 AM</div><div class="booking-dot" style="background:#6366f1;"></div><div class="booking-info"><div class="booking-client">Arcstone Capital</div><div class="booking-type">Strategy Session · 90 min · Zoom</div></div><span class="booking-badge confirmed">Confirmed</span><button class="row-action" onclick="showToast('Opening call details…')">View</button></div>
+                <div class="booking-item"><div class="booking-time">2:00 PM</div><div class="booking-dot" style="background:#34d399;"></div><div class="booking-info"><div class="booking-client">Hartwell Properties</div><div class="booking-type">Onboarding Kickoff · 60 min · Zoom</div></div><span class="booking-badge confirmed">Confirmed</span><button class="row-action" onclick="showToast('Opening call details…')">View</button></div>
+              </div>
+              <div class="booking-group">
+                <div class="booking-group-label">Thu · Apr 24</div>
+                <div class="booking-item"><div class="booking-time">11:00 AM</div><div class="booking-dot" style="background:#a78bfa;"></div><div class="booking-info"><div class="booking-client">Pinnacle Group</div><div class="booking-type">Quarterly Business Review · 90 min · Zoom</div></div><span class="booking-badge confirmed">Confirmed</span><button class="row-action" onclick="showToast('Opening call details…')">View</button></div>
+              </div>
+              <div class="booking-group">
+                <div class="booking-group-label">Fri · Apr 25</div>
+                <div class="booking-item"><div class="booking-time">10:00 AM</div><div class="booking-dot" style="background:#6366f1;"></div><div class="booking-info"><div class="booking-client">Marcus Delray</div><div class="booking-type">Discovery Call · 30 min · Google Meet</div></div><span class="booking-badge tbd">TBD</span><button class="row-action" onclick="showToast('Sending confirmation…')">Confirm</button></div>
+                <div class="booking-item"><div class="booking-time">3:00 PM</div><div class="booking-dot" style="background:#34d399;"></div><div class="booking-info"><div class="booking-client">Lakewood Studio</div><div class="booking-type">Check-in · 30 min · Phone</div></div><span class="booking-badge confirmed">Confirmed</span><button class="row-action" onclick="showToast('Opening call details…')">View</button></div>
+              </div>
+            </div>
+
+            <div class="bookings-sidebar">
+              <section class="card">
+                <div class="card-header"><h2 class="card-title">Week at a Glance</h2></div>
+                <div class="snapshot-list">
+                  <div class="snapshot-row"><span class="snap-label">Mon Apr 21</span><span class="snap-val">2 calls</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Tue Apr 22</span><span class="snap-val" style="color:var(--accent);">3 calls · Today</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Wed Apr 23</span><span class="snap-val">2 calls</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Thu Apr 24</span><span class="snap-val">1 call</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Fri Apr 25</span><span class="snap-val">2 calls</span></div>
+                </div>
+              </section>
+              <section class="card" style="margin-top:14px;">
+                <div class="card-header"><h2 class="card-title">Meeting Types</h2></div>
+                <div class="snapshot-list">
+                  <div class="snapshot-row"><span class="snap-label">Discovery Calls</span><span class="snap-val">11</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Client Reviews</span><span class="snap-val">9</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Onboarding</span><span class="snap-val">5</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Follow-ups</span><span class="snap-val">4</span></div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /#view-bookings -->
+
+      <!-- ══════════════════════════════════════════════════
+           VIEW: PIPELINE (Reporting)
+      ══════════════════════════════════════════════════ -->
+      <div class="view" id="view-pipeline">
+        <div class="section-content">
+
+          <div class="view-header">
+            <div>
+              <h2 class="view-title">Sales Pipeline</h2>
+              <p class="view-sub">Funnel analytics · Q2 2026 · $424k total pipeline value</p>
+            </div>
+            <span class="pill" style="padding:7px 14px;">Win rate: 38.7%</span>
+          </div>
+
+          <div class="vstat-row">
+            <div class="vstat"><span class="vstat-num">125</span><span class="vstat-label">Active leads</span></div>
+            <div class="vstat"><span class="vstat-num">$424k</span><span class="vstat-label">Pipeline value</span></div>
+            <div class="vstat success"><span class="vstat-num">$187k</span><span class="vstat-label">Closed this quarter</span></div>
+            <div class="vstat"><span class="vstat-num">$7,812</span><span class="vstat-label">Avg deal size</span></div>
+            <div class="vstat accent"><span class="vstat-num">24</span><span class="vstat-label">Deals won Q2</span></div>
+          </div>
+
+          <div class="pipeline-deep-grid">
+
+            <section class="card">
+              <div class="card-header"><h2 class="card-title">Funnel Breakdown</h2><p class="card-subtitle">Conversion rates between stages</p></div>
+              <div class="funnel-stages">
+                <div class="funnel-row">
+                  <div class="funnel-label"><span class="stage-dot" style="background:#6366f1;display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;"></span>New Inquiry</div>
+                  <div class="funnel-bar-wrap"><div class="funnel-bar" style="--w:100%;background:#6366f1;"></div></div>
+                  <div class="funnel-meta"><span class="funnel-count">42</span><span class="funnel-val">$38,200</span></div>
+                </div>
+                <div class="funnel-conv">↓ 73.8% conversion</div>
+                <div class="funnel-row">
+                  <div class="funnel-label"><span class="stage-dot" style="background:#8b5cf6;display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;"></span>Qualified</div>
+                  <div class="funnel-bar-wrap"><div class="funnel-bar" style="--w:74%;background:#8b5cf6;"></div></div>
+                  <div class="funnel-meta"><span class="funnel-count">31</span><span class="funnel-val">$62,500</span></div>
+                </div>
+                <div class="funnel-conv">↓ 54.8% conversion</div>
+                <div class="funnel-row">
+                  <div class="funnel-label"><span class="stage-dot" style="background:#a78bfa;display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;"></span>Proposal Sent</div>
+                  <div class="funnel-bar-wrap"><div class="funnel-bar" style="--w:40%;background:#a78bfa;"></div></div>
+                  <div class="funnel-meta"><span class="funnel-count">17</span><span class="funnel-val">$91,800</span></div>
+                </div>
+                <div class="funnel-conv">↓ 64.7% conversion</div>
+                <div class="funnel-row">
+                  <div class="funnel-label"><span class="stage-dot" style="background:#c4b5fd;display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;"></span>In Negotiation</div>
+                  <div class="funnel-bar-wrap"><div class="funnel-bar" style="--w:26%;background:#c4b5fd;"></div></div>
+                  <div class="funnel-meta"><span class="funnel-count">11</span><span class="funnel-val">$44,300</span></div>
+                </div>
+                <div class="funnel-conv" style="color:var(--green);">↓ 218% — deals from older stages</div>
+                <div class="funnel-row">
+                  <div class="funnel-label"><span class="stage-dot" style="background:#34d399;display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;"></span>Closed · Won</div>
+                  <div class="funnel-bar-wrap"><div class="funnel-bar" style="--w:57%;background:#34d399;"></div></div>
+                  <div class="funnel-meta"><span class="funnel-count">24</span><span class="funnel-val" style="color:var(--green);">$187,400</span></div>
+                </div>
+              </div>
+            </section>
+
+            <div class="pipeline-side-cards">
+              <section class="card">
+                <div class="card-header"><h2 class="card-title">Lead Sources</h2><p class="card-subtitle">Where pipeline comes from</p></div>
+                <div class="snapshot-list">
+                  <div class="snapshot-row"><span class="snap-label">Website / Contact Form</span><span class="snap-val">38%</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Client Referrals</span><span class="snap-val">29%</span></div>
+                  <div class="snapshot-row"><span class="snap-label">LinkedIn Outreach</span><span class="snap-val">16%</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Google Ads</span><span class="snap-val">11%</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Email Campaigns</span><span class="snap-val">6%</span></div>
+                </div>
+              </section>
+              <section class="card" style="margin-top:14px;">
+                <div class="card-header"><h2 class="card-title">Quarter vs Prior</h2><p class="card-subtitle">Q2 2026 vs Q1 2026</p></div>
+                <div class="snapshot-list">
+                  <div class="snapshot-row"><span class="snap-label">Leads</span><span class="snap-val" style="color:var(--green);">+14% ↑</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Proposals Sent</span><span class="snap-val" style="color:var(--green);">+9% ↑</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Win Rate</span><span class="snap-val" style="color:var(--green);">+2.3pp ↑</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Avg Deal Size</span><span class="snap-val" style="color:var(--amber);">−4% ↓</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Pipeline Value</span><span class="snap-val" style="color:var(--green);">+22% ↑</span></div>
+                </div>
+              </section>
+            </div>
+
+          </div>
+        </div>
+      </div><!-- /#view-pipeline -->
+
+      <!-- ══════════════════════════════════════════════════
+           VIEW: REPORTS
+      ══════════════════════════════════════════════════ -->
+      <div class="view" id="view-reports">
+        <div class="section-content">
+
+          <div class="view-header">
+            <div>
+              <h2 class="view-title">Reports & Exports</h2>
+              <p class="view-sub">6 available reports · Last generated Apr 22, 2026</p>
+            </div>
+            <button class="primary-btn" onclick="showToast('Generating full export…')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Export All
+            </button>
+          </div>
+
+          <div class="vstat-row">
+            <div class="vstat success"><span class="vstat-num">$124k</span><span class="vstat-label">Revenue this month</span></div>
+            <div class="vstat"><span class="vstat-num">$424k</span><span class="vstat-label">Open pipeline</span></div>
+            <div class="vstat accent"><span class="vstat-num">38.7%</span><span class="vstat-label">Close rate</span></div>
+            <div class="vstat"><span class="vstat-num">2.4 hrs</span><span class="vstat-label">Avg response time</span></div>
+          </div>
+
+          <div class="reports-grid">
+            <div class="report-card">
+              <div class="report-icon" style="background:var(--accent-soft);color:var(--accent);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+              <div class="report-body">
+                <div class="report-title">Monthly Performance Report</div>
+                <div class="report-period">April 2026 · PDF + CSV</div>
+                <div class="report-meta">Generated Apr 22 · 4.2 MB</div>
+              </div>
+              <button class="report-dl" onclick="showToast('Downloading Monthly Performance Report…')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </button>
+            </div>
+            <div class="report-card">
+              <div class="report-icon" style="background:var(--green-soft);color:var(--green);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div class="report-body">
+                <div class="report-title">Q1 2026 Summary</div>
+                <div class="report-period">Jan – Mar 2026 · PDF</div>
+                <div class="report-meta">Generated Apr 1 · 7.8 MB</div>
+              </div>
+              <button class="report-dl" onclick="showToast('Downloading Q1 Summary…')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </button>
+            </div>
+            <div class="report-card">
+              <div class="report-icon" style="background:var(--blue-soft);color:var(--blue);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div class="report-body">
+                <div class="report-title">Lead Source Analysis</div>
+                <div class="report-period">Q1–Q2 2026 · CSV</div>
+                <div class="report-meta">Generated Apr 18 · 1.1 MB</div>
+              </div>
+              <button class="report-dl" onclick="showToast('Downloading Lead Source Analysis…')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </button>
+            </div>
+            <div class="report-card">
+              <div class="report-icon" style="background:var(--amber-soft);color:var(--amber);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="report-body">
+                <div class="report-title">Client Health Report</div>
+                <div class="report-period">April 2026 · PDF</div>
+                <div class="report-meta">Generated Apr 15 · 2.4 MB</div>
+              </div>
+              <button class="report-dl" onclick="showToast('Downloading Client Health Report…')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </button>
+            </div>
+            <div class="report-card">
+              <div class="report-icon" style="background:var(--purple-soft);color:var(--purple);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="report-body">
+                <div class="report-title">Pipeline Forecast — 90 Day</div>
+                <div class="report-period">Apr–Jun 2026 · PDF + CSV</div>
+                <div class="report-meta">Generated Apr 20 · 3.1 MB</div>
+              </div>
+              <button class="report-dl" onclick="showToast('Downloading Pipeline Forecast…')">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </button>
+            </div>
+            <div class="report-card disabled">
+              <div class="report-icon" style="background:var(--bg-hover);color:var(--text-muted);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <div class="report-body">
+                <div class="report-title" style="color:var(--text-muted);">Revenue Projection Model</div>
+                <div class="report-period" style="color:var(--text-dim);">Q3 2026 · Coming soon</div>
+                <div class="report-meta">Available May 1, 2026</div>
+              </div>
+              <button class="report-dl" disabled style="opacity:.4;cursor:not-allowed;">Pending</button>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /#view-reports -->
+
+      <!-- ══════════════════════════════════════════════════
+           VIEW: SETTINGS
+      ══════════════════════════════════════════════════ -->
+      <div class="view" id="view-settings">
+        <div class="section-content">
+
+          <div class="view-header">
+            <div>
+              <h2 class="view-title">Settings</h2>
+              <p class="view-sub">Account, workspace, and integration preferences</p>
+            </div>
+          </div>
+
+          <div class="settings-layout">
+            <div class="settings-main">
+
+              <section class="card settings-card">
+                <div class="card-header"><h2 class="card-title">Profile & Account</h2><p class="card-subtitle">Your personal information and role</p></div>
+                <div class="settings-body">
+                  <div class="settings-row">
+                    <div class="settings-avatar-block">
+                      <div class="settings-avatar">AM</div>
+                      <button class="outline-btn" onclick="showToast('Upload dialog opened')">Change photo</button>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" type="text" value="Alex Morgan" /></div>
+                    <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" value="alex@cnrsolutions.co" /></div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group"><label class="form-label">Role</label><input class="form-input" type="text" value="Account Admin" readonly /></div>
+                    <div class="form-group"><label class="form-label">Timezone</label>
+                      <select class="form-input"><option>UTC−05:00 (Eastern Time)</option><option>UTC−06:00 (Central Time)</option><option>UTC−08:00 (Pacific Time)</option><option>UTC+00:00 (GMT)</option></select>
+                    </div>
+                  </div>
+                  <div class="settings-actions"><button class="primary-btn" onclick="showToast('Profile saved')">Save changes</button><button class="outline-btn">Cancel</button></div>
+                </div>
+              </section>
+
+              <section class="card settings-card">
+                <div class="card-header"><h2 class="card-title">Notification Preferences</h2><p class="card-subtitle">Choose what alerts you receive</p></div>
+                <div class="settings-body">
+                  <div class="notif-row"><div class="notif-info"><div class="notif-title">New lead submitted</div><div class="notif-desc">Alert when a lead comes through the contact form</div></div><label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label></div>
+                  <div class="notif-row"><div class="notif-info"><div class="notif-title">Quote viewed by client</div><div class="notif-desc">Notify when a proposal is opened</div></div><label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label></div>
+                  <div class="notif-row"><div class="notif-info"><div class="notif-title">Meeting booked or cancelled</div><div class="notif-desc">Booking confirmations and cancellations</div></div><label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label></div>
+                  <div class="notif-row"><div class="notif-info"><div class="notif-title">Quote expiry warning</div><div class="notif-desc">48 hours before a proposal expires</div></div><label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label></div>
+                  <div class="notif-row"><div class="notif-info"><div class="notif-title">Weekly performance digest</div><div class="notif-desc">Monday morning summary email</div></div><label class="toggle"><input type="checkbox"><span class="toggle-slider"></span></label></div>
+                  <div class="notif-row"><div class="notif-info"><div class="notif-title">Deal closed notification</div><div class="notif-desc">Celebrate every won deal</div></div><label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label></div>
+                </div>
+              </section>
+
+            </div>
+
+            <div class="settings-side">
+              <section class="card settings-card">
+                <div class="card-header"><h2 class="card-title">Integrations</h2><p class="card-subtitle">Connected tools</p></div>
+                <div class="integration-list">
+                  <div class="integration-item connected"><div class="intg-logo" style="background:#4a154b;color:white;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg></div><div class="intg-info"><div class="intg-name">Slack</div><div class="intg-status connected-label">Connected · #ops-alerts</div></div><button class="outline-btn" style="font-size:11px;padding:4px 9px;" onclick="showToast('Slack settings opened')">Manage</button></div>
+                  <div class="integration-item connected"><div class="intg-logo" style="background:#ff4a00;color:white;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.964 0c-2.69 0-4.345 1.507-4.96 4.52L11.51 11.66C10.617 7.84 9.278 5.32 6.94 5.32c-2.59 0-4.18 2.26-4.85 6.77L0 24h3.71l1.94-10.72c.46-2.78 1.11-4.06 2.06-4.06.95 0 1.66 1.28 2.49 5.34L12.11 24h3.72l2.28-12.38c.52-2.8 1.28-4.04 2.3-4.04.98 0 1.63 1.22 2.44 5.22L24 24h3.6L24 5.32c-.81-3.38-2.26-5.32-4.83-5.32h-1.2z"/></svg></div><div class="intg-info"><div class="intg-name">Zapier</div><div class="intg-status connected-label">Connected · 3 active zaps</div></div><button class="outline-btn" style="font-size:11px;padding:4px 9px;" onclick="showToast('Zapier settings opened')">Manage</button></div>
+                  <div class="integration-item connected"><div class="intg-logo" style="background:#1a73e8;color:white;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 3h-15A1.5 1.5 0 003 4.5v15A1.5 1.5 0 004.5 21h15a1.5 1.5 0 001.5-1.5v-15A1.5 1.5 0 0019.5 3zm-15 1.5h15V7.5H4.5V4.5zM4.5 19.5v-10.5h15V19.5H4.5z"/></svg></div><div class="intg-info"><div class="intg-name">Google Calendar</div><div class="intg-status connected-label">Connected · Syncing</div></div><button class="outline-btn" style="font-size:11px;padding:4px 9px;" onclick="showToast('Calendar settings opened')">Manage</button></div>
+                  <div class="integration-item"><div class="intg-logo" style="background:var(--bg-hover);color:var(--text-muted);border:1px solid var(--border);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div><div class="intg-info"><div class="intg-name">HubSpot CRM</div><div class="intg-status">Not connected</div></div><button class="outline-btn" style="font-size:11px;padding:4px 9px;color:var(--accent);border-color:var(--accent-soft);" onclick="showToast('HubSpot setup started')">Connect</button></div>
+                  <div class="integration-item"><div class="intg-logo" style="background:var(--bg-hover);color:var(--text-muted);border:1px solid var(--border);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="intg-info"><div class="intg-name">DocuSign</div><div class="intg-status">Not connected</div></div><button class="outline-btn" style="font-size:11px;padding:4px 9px;color:var(--accent);border-color:var(--accent-soft);" onclick="showToast('DocuSign setup started')">Connect</button></div>
+                </div>
+              </section>
+
+              <section class="card settings-card" style="margin-top:14px;">
+                <div class="card-header"><h2 class="card-title">Workspace</h2></div>
+                <div class="snapshot-list">
+                  <div class="snapshot-row"><span class="snap-label">Plan</span><span class="snap-val" style="color:var(--accent);">Pro · 5 seats</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Data retention</span><span class="snap-val">24 months</span></div>
+                  <div class="snapshot-row"><span class="snap-label">API access</span><span class="snap-val" style="color:var(--green);">Enabled</span></div>
+                  <div class="snapshot-row"><span class="snap-label">Next billing</span><span class="snap-val">May 1, 2026</span></div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /#view-settings -->
+
+    </div><!-- /#view-container -->
+
+    <footer class="dashboard-footer">
+      <span class="footer-left">CNR Ops · Internal operations platform</span>
+      <span class="footer-right">Built by <strong>CNR Solutions</strong> · v2.0.0</span>
+    </footer>
+
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <span class="toast-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+    <span class="toast-msg" id="toastMsg"></span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
