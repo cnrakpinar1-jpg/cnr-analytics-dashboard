@@ -1,4 +1,4 @@
-# CNR Ops Dashboard
+# CNR Analytics Dashboard
 
 A premium front-end operations dashboard built for service businesses — managing leads, clients, proposals, meetings, and reporting from a single, polished internal interface.
 
@@ -95,8 +95,6 @@ Profile editing form (name, email, role, timezone), six notification preference 
 | Data | Demo data embedded in the front end |
 | Architecture | Multi-view front-end dashboard |
 | Branding | Subtle CNR Solutions product signature |
-
-No React, Vue, Tailwind, or any runtime dependency beyond a single Google Font. The project works offline.
 
 No React, Vue, Tailwind, or any runtime dependency beyond a single Google Font. The project works offline.
 
